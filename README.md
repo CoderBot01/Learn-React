@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+React Js Features:
+---> Describing the UI <---
+        -->COMPONENTS:
+                ->Isolated piece of UI
+                ->Their names must start with a capital letter
+                ->By using return, we can render the html with the syntax(render(Html syntax...);)
+                ->Nest the one component into another component
+                ->lower cases are html tag and upper cases are components
+                ->Components can render other components, but you must never nest their definitions
+        -->Importing and Exporting Components:
+                ->App.js have a root component file
+                ->Importing a component(import Example from "./Example")
+                ->Exporting a component(export default Example;)
+                ->Exporting and importing multiple components from the same file(we can use a different file to export or we use a named export like(export function Example(){} ))
+        -->Writing Markup with JSX:
+                ->JSX and React are two separate things. They’re often used together, but you can use them independently of each other. JSX is a syntax extension, while React is a JavaScript library.
+                ->The Rules of JSX:
+                        <> Return a single root element by using <div></div> or <> </>(Fragment)
+                        <>Close all the tags
+                        <> camelCase all most of the things!
+                        <> Use a JSX Converter
+        -->JavaScript in JSX with Curly Braces:
+                ->Passing strings with quotes(const avatar="example.jpg" <img src={avatar})
+                ->Any JavaScript expression will work between curly braces, including function calls like formatDate()
+                ->As text directly inside a JSX tag: <h1>{name}'s To Do List</h1>
+                ->As attributes immediately following the = sign: src={avatar}
+                ->Using “double curlies”: CSS and other objects in JSX
+        -->Passing Props to a Component:
+                ->Props are the information that you pass to a JSX tag. For example, className, src, alt, width, and height are some of the props you can pass to an <img>
+                <>1.Pass props to the child component
+                <>2.Read props inside the child component
+        -->Conditional Rendering:
+                ->we can conditionally render JSX using JavaScript syntax like if statements, &&, and ? : operators.
+                ->we can use the ternary operators for some condition for reducing duplication{condition? true:false}
+                ->we can Conditionally assigning JSX to a variable
+        -->Rendering Lists:
+                ->Rendering data from arrays(map)
+                ->Filtering arrays of items(filter)
+                ->Keeping list items in order with key
+        -->Keeping component pure
+                ->Purity: Components as formulas
+                        <>It minds its own business. It does not change any objects or variables that existed before it was called.
+                        <>Same inputs, same output. Given the same inputs, a pure function should always return the same result.
+                ->Side Effects: (un)intended consequence
+                        <>Changing a pre existing variable
+                ->Detecting impure calculations with StrictMode
+                        <>Although you might not have used them all yet, in React there are three kinds of inputs that you can read while rendering: props, state, and context.
+                        You should always treat these inputs as read-only.
+                        <>When you want to change something in response to user input, you should set state instead of writing to a variable.
+                        You should never change preexisting variables or objects while your component is rendering.
+        -->Understanding Ui as a tree
+                ->The render tree- Render trees help identify what the top-level and leaf components are
+                Top-level components affect the rendering performance of all components beneath them and leaf components are often re-rendered frequently.
+                Identifying them is useful for understanding and debugging rendering performance.
+                ->The module Dependency tree -Dependency trees represent the module dependencies in a React app.
+                Dependency trees are used by build tools to bundle the necessary code to ship an app.
+                Dependency trees are useful for debugging large bundle sizes that slow time to paint and expose opportunities for optimizing what code is bundled.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---> Adding Interactivity <---
+               ->Some things on the screen update in response to user input
+        -->Responding to events:
+                        ->We can add custom event handlers in the jsx like default handler "onClick"
+                        ->Adding event handlers
+                        ->we only Passing a function not calling a function
+                ->Reading props in event handlers
+                ->same as props we are using
+                ->Passing event handlers as props
+                ->Naming event handler Props
+                ->event Propagation
+                        ->Event handlers will also catch events from any children your component might have.
+                        We say that an event “bubbles” or “propagates” up the tree: it starts with where the event happened, and then goes up the tree.
+                ->Preventing default behaviour
+                        -> we can use e.preventDefault to stop the whole page to render
+        -->State: A Component's memory:
+                        ->The component specific memory is called state.
+                        ->useState() - Hook
+                        <>A state variable to retain the data between renders.
+                        <>A state setter function to update the variable and trigger react to render the component again.
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---> Managing State
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---> Escape Hatches
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Notes to Build a efficient Code:
+1.Using Solid Principles
+    -->S-> Single Responsibility Principle(SRP)
+    -->O-> Open/Closed Principle
+    -->L-> Liskov's Substitution Principle(LSP)
+    -->I-> Interface Segregation Principle(Isp)
+    -->D-> Dependency Inversion Principle(DIP)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+        Solid principle helps in reducing tight coupling. The group of classes are highly dependent on each other. So we use losse coupling.
+        Loosely coupled classes minimize changes in your code, helps in making code more reusable, maintainable, flexible and stable. Now let’s discuss one by one these principles
+    1.1)------->SRP<--------<SRP means "a class should have only one job or purpose within the software system.">
+    1.2)------->Open/Closed Principle<------<This principle states that “Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification”
+    which means you should be able to extend a class behavior, without modifying it.>
+    1.3)------->LSP<--------< “Derived or child classes must be substitutable for their base or parent classes“.
+    This principle ensures that any class that is the child of a parent class should be usable in place of its parent without any unexpected behavior.>
+    1.4)------->ISP<--------<This principle is the first principle that applies to Interfaces instead of classes in SOLID and it is similar to the single responsibility principle. It states that “do not force any client to implement an interface which is irrelevant to them“. Here your main goal is to focus on avoiding fat interface and give preference to many small client-specific interfaces. 
+    You should prefer many client interfaces rather than one general interface and each interface should have a specific responsibility.>
+    1.5)------->DIP<--------<In object-oriented design that states that “High-level modules should not depend on low-level modules. Both should depend on abstractions“. Additionally, abstractions should not depend on details. Details should depend on abstractions.
+In simpler terms, the DIP suggests that classes should rely on abstractions (e.g., interfaces or abstract classes) rather than concrete implementations.
+This allows for more flexible and decoupled code, making it easier to change implementations without affecting other parts of the codebase.>
